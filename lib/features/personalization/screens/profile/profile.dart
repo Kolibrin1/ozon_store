@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ozon_store/common/widgets/appbar/app_appbar.dart';
 import 'package:ozon_store/common/widgets/images/circular_image.dart';
+import 'package:ozon_store/common/widgets/shimmer_effect_widget.dart';
 import 'package:ozon_store/common/widgets/texts/section_heading.dart';
+import 'package:ozon_store/features/personalization/controllers/user_controller.dart';
 import 'package:ozon_store/utils/constants/image_strings.dart';
 import 'package:ozon_store/utils/constants/sizes.dart';
 
+import 'widgets/change_name.dart';
 import 'widgets/profile_menu.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -13,6 +17,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: const AppAppBar(
         title: Text('Профиль'),
@@ -27,12 +32,27 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const AppCircularImage(
-                      image: AppImages.user,
-                      width: 80,
-                      height: 80,
+                    Obx(() {
+                      final networkImage = controller.user.value.prfilePicture;
+                      final image = networkImage.isNotEmpty ? networkImage : AppImages.user;
+
+                      return controller.imageUploading.value
+                          ? const AppShimmerEffect(
+                              width: 80,
+                              height: 80,
+                              radius: 80,
+                            )
+                          : AppCircularImage(
+                              image: image,
+                              width: 80,
+                              height: 80,
+                              isNetworkImage: networkImage.isNotEmpty,
+                            );
+                    }),
+                    TextButton(
+                      onPressed: () => controller.uploadUserProfilePicture(),
+                      child: const Text('Установить фото профиля'),
                     ),
-                    TextButton(onPressed: () {}, child: const Text('Установить фото профиля'))
                   ],
                 ),
               ),
@@ -51,13 +71,13 @@ class ProfileScreen extends StatelessWidget {
                 height: AppSizes.spaceBtwItems,
               ),
               ProfileMenu(
-                onPressed: () {},
-                value: 'Rien De Mal',
+                onPressed: () => Get.to(() => const ChangeName()),
+                value: controller.user.value.fullName,
                 title: 'Имя:',
               ),
               ProfileMenu(
                 onPressed: () {},
-                value: 'rien_de_mal',
+                value: controller.user.value.userName,
                 title: 'Username:',
               ),
               const SizedBox(
@@ -76,18 +96,18 @@ class ProfileScreen extends StatelessWidget {
               ),
               ProfileMenu(
                 onPressed: () {},
-                value: '53879',
+                value: controller.user.value.id,
                 title: 'ID:',
                 icon: Iconsax.copy,
               ),
               ProfileMenu(
                 onPressed: () {},
-                value: 'kolibrin.georgiy@mail.ru',
+                value: controller.user.value.email,
                 title: 'Почта:',
               ),
               ProfileMenu(
                 onPressed: () {},
-                value: '+7 (900) 290-20-33',
+                value: controller.user.value.phoneNumber,
                 title: 'Телефон:',
               ),
               ProfileMenu(
@@ -106,7 +126,9 @@ class ProfileScreen extends StatelessWidget {
               ),
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.deleteAccountWarningPopup();
+                  },
                   child: const Text(
                     'Выход из аккаунта',
                     style: TextStyle(

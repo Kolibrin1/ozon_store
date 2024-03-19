@@ -1,4 +1,12 @@
 class AppValidator {
+  static String? validateEmptyText(String? fieldName, String? value) {
+    if (value == null || value.isEmpty) {
+      return '$fieldName не может быть пустым';
+    }
+
+    return null;
+  }
+
   static String? validateEmail(String? email) {
     if (email == null || email.isEmpty) {
       return 'Email не может быть пустым';

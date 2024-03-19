@@ -14,7 +14,7 @@ class AppImages {
   static const String staticSuccessIllustration = "assets/images/animations/sammy-line-success.png";
   static const String deliveredInPlaneIllustration = "assets/images/animations/sammy-line-come-back-later.png";
   static const String deliveredEmailIllustration = "assets/images/animations/sammy-line-man-receives-a-mail.png";
-  static const String verifyIllustration = "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
+  static const String verifyIllustration = "assets/images/animations/success_reg_and_just_verification.json";
 
 
   static const String sportIcon = "assets/icons/categories/icons8-bowling-64.png";

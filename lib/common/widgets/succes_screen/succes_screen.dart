@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:ozon_store/common/styles/spacing_styles.dart';
-import 'package:ozon_store/features/authentication/screens/login/login.dart';
 
-import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
-import '../../../utils/constants/text_strings.dart';
 import '../../../utils/helpers/functions.dart';
 
 class SuccessScreen extends StatelessWidget {
@@ -24,8 +21,8 @@ class SuccessScreen extends StatelessWidget {
           child: Column(
             children: [
               Center(
-                child: Image(
-                  image:  AssetImage(image),
+                child: Lottie.asset(
+                  image,
                   width: AppFunctions.screenWidth() * 0.6,
                 ),
               ),

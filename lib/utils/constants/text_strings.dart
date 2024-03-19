@@ -22,13 +22,13 @@ class AppTexts {
   static const String resendEmail = "Отправить еще раз";
   static const String resendEmailIn = "Отправить еще раз через";
   static const String forgetPassword = "Забыли пароль?";
-  static const String and = 'и';
+  static const String and = ' и';
   static const String signIn = "Войти";
   static const String createAccount = "Создать аккаунт";
   static const String orSignInWith = "или войти через";
   static const String orSignUpWith = "или зарегистрироваться через";
   static const String iAgreeTo = "Я согласен с ";
-  static const String privacyPolicy = "Политикой конфиденциальности";
+  static const String privacyPolicy = "Политикой конфиденциаль-\nности";
   static const String termsOfUse = "Условиями использования";
 
   static const String loginTitle = "Добро пожаловать,";

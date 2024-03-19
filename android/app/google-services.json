@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "823188760947",
+    "project_id": "ozonstore-682ff",
+    "storage_bucket": "ozonstore-682ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823188760947:android:4815bd5e313d2ccf983d06",
+        "android_client_info": {
+          "package_name": "com.example.ozon_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823188760947-qg4nb258siv1hfpjita4cmg5jqtuo3c3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ozon_store",
+            "certificate_hash": "317ed65602326d5a06010aa10514222de4bd1695"
+          }
+        },
+        {
+          "client_id": "823188760947-rlsn84ud077jkgqp032lhp34dmj952b2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClA8EvSUkwDjObt2bD1j1xmsPupo_wKmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823188760947-rlsn84ud077jkgqp032lhp34dmj952b2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "823188760947-a9kbv69le53p8fsldr3ovv0d754s5a62.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ozonStore"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ozon_store/common/widgets/shimmer_effect_widget.dart';
+import 'package:ozon_store/features/personalization/controllers/user_controller.dart';
 
 import '../../../../../common/widgets/appbar/app_appbar.dart';
 import '../../../../../common/widgets/products/cart/cart_menu_icon.dart';
@@ -14,6 +16,7 @@ class AppHomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UserController());
     return AppAppBar(
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,11 +27,22 @@ class AppHomeAppBar extends StatelessWidget {
                   color: AppColors.grey,
                 ),
           ),
-          Text(
-            AppTexts.homeAppbarSubTitle,
-            style: Theme.of(context).textTheme.headlineSmall!.apply(
-                  color: AppColors.white,
-                ),
+          Obx(
+            () {
+              if (controller.profileLoading.value) {
+                return const AppShimmerEffect(
+                  width: 160,
+                  height: 20,
+                );
+              } else {
+                return Text(
+                  controller.user.value.fullName,
+                  style: Theme.of(context).textTheme.headlineSmall!.apply(
+                        color: AppColors.white,
+                      ),
+                );
+              }
+            },
           ),
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ozon_store/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:ozon_store/bindings/general_bindings.dart';
+import 'package:ozon_store/utils/constants/app_colors.dart';
 
 import 'utils/theme/theme.dart';
 
@@ -13,7 +14,15 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      home: const OnBoardingScreen(),
+      initialBinding: GeneralBindings(),
+      home: const Scaffold(
+        backgroundColor: AppColors.primary,
+        body: Center(
+          child: CircularProgressIndicator(
+            color: Colors.white,
+          ),
+        ),
+      ),
     );
   }
 }
