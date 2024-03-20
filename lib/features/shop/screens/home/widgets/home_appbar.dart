@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ozon_store/common/widgets/shimmer_effect_widget.dart';
+import 'package:ozon_store/common/widgets/shimmers/shimmer_effect_widget.dart';
 import 'package:ozon_store/features/personalization/controllers/user_controller.dart';
 
 import '../../../../../common/widgets/appbar/app_appbar.dart';

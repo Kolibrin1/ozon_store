@@ -36,10 +36,8 @@ class AppVerticalImageText extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Center(
-                child: Image(
-                  image: AssetImage(
-                    image,
-                  ),
+                child: Image.network(
+                  image,
                   fit: BoxFit.cover,
                   color: AppFunctions.isDarkMode(context) ? AppColors.light : AppColors.dark,
                 ),

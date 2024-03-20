@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ozon_store/common/widgets/appbar/app_appbar.dart';
 import 'package:ozon_store/common/widgets/images/circular_image.dart';
-import 'package:ozon_store/common/widgets/shimmer_effect_widget.dart';
+import 'package:ozon_store/common/widgets/shimmers/shimmer_effect_widget.dart';
 import 'package:ozon_store/common/widgets/texts/section_heading.dart';
 import 'package:ozon_store/features/personalization/controllers/user_controller.dart';
 import 'package:ozon_store/utils/constants/image_strings.dart';

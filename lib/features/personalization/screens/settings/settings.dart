@@ -4,9 +4,11 @@ import 'package:iconsax/iconsax.dart';
 import 'package:ozon_store/common/widgets/appbar/app_appbar.dart';
 import 'package:ozon_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:ozon_store/common/widgets/texts/section_heading.dart';
+import 'package:ozon_store/data/repositories/categories/category_repository.dart';
 import 'package:ozon_store/features/personalization/screens/address/address.dart';
 import 'package:ozon_store/features/personalization/screens/profile/profile.dart';
 import 'package:ozon_store/utils/constants/app_colors.dart';
+import 'package:ozon_store/utils/constants/app_dummy_data.dart';
 import 'package:ozon_store/utils/constants/sizes.dart';
 
 import '../../../../common/widgets/list_tile/settings_menu_tile.dart';
@@ -109,7 +111,9 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.document_upload,
                     title: 'Загрузка данных',
                     subTitle: 'Загрузка данных из вашего хранилища Firebase',
-                    onTap: () {},
+                    onTap: () {
+                      Get.put(CategoryRepository()).uploadDummyData(AppDummyData.categories);
+                    },
                   ),
                   SettingsMenuTile(
                     icon: Iconsax.location,

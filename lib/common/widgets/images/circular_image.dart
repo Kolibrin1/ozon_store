@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:ozon_store/common/widgets/shimmer_effect_widget.dart';
+import 'package:ozon_store/common/widgets/shimmers/shimmer_effect_widget.dart';
 import 'package:ozon_store/utils/constants/app_colors.dart';
 import 'package:ozon_store/utils/constants/sizes.dart';
 import 'package:ozon_store/utils/helpers/functions.dart';
