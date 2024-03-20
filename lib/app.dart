@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:ozon_store/bindings/general_bindings.dart';
 import 'package:ozon_store/utils/constants/app_colors.dart';
 
+import 'routes/app_routes.dart';
 import 'utils/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -15,6 +16,7 @@ class App extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       initialBinding: GeneralBindings(),
+      getPages: AppRoutes.pages,
       home: const Scaffold(
         backgroundColor: AppColors.primary,
         body: Center(

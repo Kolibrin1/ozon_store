@@ -1,5 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:ozon_store/utils/constants/app_colors.dart';
+import 'package:ozon_store/common/widgets/shimmers/shimmer_effect_widget.dart';
 import 'package:ozon_store/utils/constants/sizes.dart';
 
 class AppRoundedImage extends StatelessWidget {
@@ -33,7 +34,7 @@ class AppRoundedImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
-      child: Container( 
+      child: Container(
         width: width,
         height: height,
         padding: padding,
@@ -44,14 +45,18 @@ class AppRoundedImage extends StatelessWidget {
         ),
         child: ClipRRect(
           borderRadius: applyImageRadius ? BorderRadius.circular(borderRadius) : BorderRadius.zero,
-          child: Image(
-            image: isNetworkImage
-                ? NetworkImage(imageUrl)
-                : AssetImage(
-              imageUrl,
-            ) as ImageProvider,
-            fit: fit,
-          ),
+          child: isNetworkImage
+              ? CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  progressIndicatorBuilder: (context, url, downloadProgress) => const AppShimmerEffect(width: double.infinity, height: 220),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                )
+              : Image(
+                  fit: fit,
+                  image: AssetImage(
+                    imageUrl,
+                  ),
+                ),
         ),
       ),
     );
